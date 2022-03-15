@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script> -->
     <title>Words-Widget</title>
   </head>
   <body>
@@ -11,7 +11,15 @@
     <div class="container">
 
         <h1>Words Widget</h1>
-       
+<!--        
+        <div class="textInput">
+            <input type="text" class="search" placeholder="enter your sentence">
+            <input type="button" class="submitBtn" value="submit"> 
+        </div> -->
+        <label for="fname">enter your sentence </label>
+            <input type="text" class="textInput" id="fname" name="fname"><br><br>
+            <button type="submit" class="submitBtn" >submit</button>
+            <div class="result"></div>
 
       </div>
     
