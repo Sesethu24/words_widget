@@ -16,23 +16,24 @@
 
     
     function highlightWords() {
-
-        //let textInputValue = textInputElem.value;
+   
+        let message = ''
         const highlight = sentence.split(" ");
+        console.log(sentence);
        
         for (let i = 0; i < highlight.length; i++) {
-            
             if (highlight[i].length > 4) {
-               
-                sentence += "<mark>" + highlight[i] +"</mark> "
-    
+                
+                message += "<mark>" + highlight[i] +"</mark> "
+                
             } 
             else {
-               
-                sentence += highlight[i] + " ";
+                
+                message += highlight[i] + " ";
             }
         }
-       
+        sentence = message;
+        console.log({sentence});
     }
     function wordsCounter() {
       
@@ -54,6 +55,7 @@
     let instance = typeSentence()
     resultsElem.innerHTML = instance.wordsCounter();
     instance.highlightWords();
+    console.log(sentence);
     displayElement.innerHTML = sentence;
 
 });
