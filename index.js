@@ -1,18 +1,54 @@
- const textBtnElem = document.querySelector(".submitBtn");
- const resultElem = document.querySelector(".result");
+ const textInput = document.querySelector(".submitBtn");
+ const displayElement = document.querySelector(".result");
+ let resultsElem = document.querySelector(".results");
  var sentence;
 
+    function typeSentence(){
 
- function typeSentence(){
     if (document.querySelector(".textInput").value != null) 
     {
-        sentence= document.querySelector(".textInput").value;
+        sentence = document.querySelector(".textInput").value;
     }
     document.querySelector(".result").innerHTML = sentence;
 
+    function highlightWords(textInput) {
+
+        sentence = textInput.split(" ");
+        let mySentence = '';
+    
+        for (let i = 0; i < sentence.length; i++) {
+    
+            if (sentence[i].length > 4) {
+    
+                mySentence += `<mark  class="and">${sentence[i]}</mark> `
+    
+            } else {
+                mySentence += sentence[i] + " ";
+            }
+        }
+       displayElement.innerHTML = mySentence;
+    }
+    function wordsCounter() {
+       
+        let counter = sentence.split(" ").length;
+        
+        return `There are ${counter} words in the sentence`;
+    }
     setTimeout(function(){
-        resultElem.innerHTML = "";
-    }, 2000);
+        displayElement.innerHTML = "";
+        resultsElem.innerHTML = "";
+    }, 3000);
+
+    return{
+        highlightWords,
+        wordsCounter
+    }
  }
 
- textBtnElem.addEventListener('click', typeSentence)
+ textInput.addEventListener('click',() => { 
+    let instance = typeSentence()
+    resultsElem.innerHTML = instance.wordsCounter();
+    typeSentence();   
+    displayElement.innerHTML = instance.highlightWords();
+
+});
