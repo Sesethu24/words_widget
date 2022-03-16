@@ -1,54 +1,59 @@
- const textInput = document.querySelector(".submitBtn");
+ const textInputElem = document.querySelector(".textInput");
+ const textInputBtn = document.querySelector(".submitBtn");
  const displayElement = document.querySelector(".result");
  let resultsElem = document.querySelector(".results");
- var sentence;
-
+ var sentence = "";
+  
+ 
     function typeSentence(){
 
-    if (document.querySelector(".textInput").value != null) 
-    {
-        sentence = document.querySelector(".textInput").value;
-    }
-    document.querySelector(".result").innerHTML = sentence;
+    // if (document.querySelector(".textInput").value != null) 
+    // {
+    //   sentence = document.querySelector(".textInput").value;
+    sentence = textInputElem.value;
+    // }
+    // document.querySelector(".result").innerHTML = sentence;
 
-    function highlightWords(textInput) {
+    
+    function highlightWords() {
 
-        sentence = textInput.split(" ");
-        let mySentence = '';
+        //let textInputValue = textInputElem.value;
+        const highlight = sentence.split(" ");
+       
+        for (let i = 0; i < highlight.length; i++) {
+            
+            if (highlight[i].length > 4) {
+               
+                sentence += "<mark>" + highlight[i] +"</mark> "
     
-        for (let i = 0; i < sentence.length; i++) {
-    
-            if (sentence[i].length > 4) {
-    
-                mySentence += `<mark  class="and">${sentence[i]}</mark> `
-    
-            } else {
-                mySentence += sentence[i] + " ";
+            } 
+            else {
+               
+                sentence += highlight[i] + " ";
             }
         }
-       displayElement.innerHTML = mySentence;
+       
     }
     function wordsCounter() {
-       
+      
         let counter = sentence.split(" ").length;
         
         return `There are ${counter} words in the sentence`;
     }
-    setTimeout(function(){
-        displayElement.innerHTML = "";
-        resultsElem.innerHTML = "";
-    }, 3000);
+    // setTimeout(function(){
+    //     displayElement.innerHTML = "";
+    //     resultsElem.innerHTML = "";
+    // }, 3000);
 
     return{
         highlightWords,
         wordsCounter
     }
  }
-
- textInput.addEventListener('click',() => { 
+    textInputBtn.addEventListener('click',() => { 
     let instance = typeSentence()
     resultsElem.innerHTML = instance.wordsCounter();
-    typeSentence();   
-    displayElement.innerHTML = instance.highlightWords();
+    instance.highlightWords();
+    displayElement.innerHTML = sentence;
 
 });
