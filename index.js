@@ -53,19 +53,24 @@
 function hideSomeWords() {
     const highlight = sentence.split(" ");
     let message = '';
-    for (let i = 0; i < highlight.length; i++) {
-        if ((checkbox.checked == true) && (highlight[i].length >= 5)) {
-        
-            message += "<mark>" + highlight[i] +"</mark> "
-        } 
-        else {
-            message += " ";
+    if(checkbox.checked) {
+        for (let i = 0; i < highlight.length; i++) {
+            if ((checkbox.checked == true) && (highlight[i].length >= 5)) {
+            
+                message += "<mark>" + highlight[i] +"</mark> "
+            } 
+            else {
+                message += " ";
+            }
         }
-        
+    } else
+    {
+        message = sentence
     }
+    
    checkboxDisplay.innerHTML = message;
 }
     checkbox.addEventListener('click', function () {
        hideSomeWords();
-    //checkboxDisplay.innerHTML = sentence;
+    
 })
