@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script> -->
+ 
     <title>Words-Widget</title>
   </head>
   <body>
@@ -15,9 +15,14 @@
         <label for="fname">enter your sentence </label>
             <input type="text" class="textInput" id="fname" name="fname"><br><br>
             <button type="submit" class="submitBtn" >submit</button>
+            <br><br>
             <div class="result"></div>
+            <br>
             <div class="results"></div>
-
+            <br>
+            <input type="checkbox" class="checkbox" id="highlight" name="highlight" value="highlighted">Hide words less than 5 characters and
+            highlight longest word <br><br>
+            <div class="display"></div>
     </div>
     
     <script src="index.js" ></script>
