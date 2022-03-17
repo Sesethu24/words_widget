@@ -2,7 +2,7 @@
  const textInputBtn = document.querySelector(".submitBtn");
  const displayElement = document.querySelector(".result");
  const checkbox = document.querySelector(".checkbox");
- const checkboxDisplay = document.querySelector(".display");
+ const checkboxDisplay = document.querySelector(".result");
  let resultsElem = document.querySelector(".results");
  var sentence = "";
   
@@ -30,7 +30,7 @@
       
         let counter = sentence.split(" ").length;
         
-        return `There are ${counter} words in the sentence`;
+        return `The sentence contains ${counter} words`;
     }
     // setTimeout(function(){
     //     displayElement.innerHTML = "";
@@ -40,14 +40,14 @@
     return{
         highlightWords,
         wordsCounter,
-       
-    }
+       }
  }
     textInputBtn.addEventListener('click',() => { 
     let instance = typeSentence()
     resultsElem.innerHTML = instance.wordsCounter();
     instance.highlightWords();
     displayElement.innerHTML = sentence;
+   
 
 });
 function hideSomeWords() {
@@ -57,15 +57,15 @@ function hideSomeWords() {
         if ((checkbox.checked == true) && (highlight[i].length >= 5)) {
         
             message += "<mark>" + highlight[i] +"</mark> "
-
-        } else {
+        } 
+        else {
             message += " ";
         }
-        console.log(message);
+        
     }
    checkboxDisplay.innerHTML = message;
 }
-checkbox.addEventListener('click', function () {
-    hideSomeWords();
-  
+    checkbox.addEventListener('click', function () {
+       hideSomeWords();
+    //checkboxDisplay.innerHTML = sentence;
 })
