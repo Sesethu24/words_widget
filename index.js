@@ -48,7 +48,6 @@
     instance.highlightWords();
     displayElement.innerHTML = sentence;
    
-
 });
 function hideSomeWords() {
     const highlight = sentence.split(" ");
