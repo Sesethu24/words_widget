@@ -7,7 +7,7 @@
  let resultsElem = document.querySelector(".results");
  var sentence = "";
   
-    function typeSentence(){
+    function getSentence(){
 
       sentence = textInputElem.value;
     
@@ -33,10 +33,6 @@
         
         return `The sentence contains ${counter} words`;
     }
-    // setTimeout(function(){
-    //     displayElement.innerHTML = "";
-    //     resultsElem.innerHTML = "";
-    // }, 5000);
 
     return{
         highlightWords,
@@ -44,7 +40,7 @@
        }
  }
     textInputBtn.addEventListener('click',() => { 
-    let instance = typeSentence()
+    let instance = getSentence()
     resultsElem.innerHTML = instance.wordsCounter();
     instance.highlightWords();
     displayElement.innerHTML = sentence;
@@ -84,10 +80,9 @@ function hideSomeWords() {
         }
         message = sentence;
     }
-    longestWordElem.innerHTML = `The longest word in the sentence is <mark  class="and"> ${longest} </mark>`;
-
-}
-
+    longestWordElem.innerHTML = `The longest word in the sentence is <mark> ${longest} </mark>`;
+    }
+    
     checkbox.addEventListener('click', function () {
        hideSomeWords();
        longestWord();
