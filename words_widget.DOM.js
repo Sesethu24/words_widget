@@ -5,45 +5,50 @@
  const checkboxDisplay = document.querySelector(".result");
  const longestWordElem = document.querySelector(".long");
  let resultsElem = document.querySelector(".results");
- var sentence = "";
+ //var sentence = "";
   
-    function getSentence(){
 
-      sentence = textInputElem.value;
-    
-    function highlightWords() {
+ var instance = getSentence()
+//     function getSentence(){
+
+//     function highlightWords() {
    
-        let message = ''
-        const highlight = sentence.split(" ");
+//         let message = ''
+//         const highlight = sentence.split(" ");
        
-       for (let i = 0; i < highlight.length; i++) {
-            if (highlight[i].length > 4) {
+//        for (let i = 0; i < highlight.length; i++) {
+//             if (highlight[i].length > 4) {
                 
-             message += "<mark>" + highlight[i] +"</mark> "
-            } 
-            else {
-                message += highlight[i] + " ";
-            }
-        }
-        sentence = message;
-    }
-    function wordsCounter() {
+//              message += "<mark>" + highlight[i] +"</mark> "
+//             } 
+//             else {
+//                 message += highlight[i] + " ";
+//             }
+//         }
+//         sentence = message;
+//     }
+//     function wordsCounter() {
       
-        let counter = sentence.split(" ").length;
+//         let counter = sentence.split(" ").length;
         
-        return `The sentence contains ${counter} words`;
-    }
+//         return `The sentence contains ${counter} words`;
+//     }
 
-    return{
-        highlightWords,
-        wordsCounter,
-       }
- }
+//     return{
+//         highlightWords,
+//         wordsCounter,
+//        }
+//  }
+
     textInputBtn.addEventListener('click',() => { 
-    let instance = getSentence()
-    resultsElem.innerHTML = instance.wordsCounter();
-    instance.highlightWords();
-    displayElement.innerHTML = sentence;
+        sentence = textInputElem.value;
+        instance.setSentence(sentence)
+     if(sentence != ''){
+        displayElement.innerHTML = instance.get(sentence)
+    }
+    resultsElem.innerHTML = instance.wordsCounter(sentence);
+     instance.highlightWords();
+ 
    
 });
 function hideSomeWords() {
