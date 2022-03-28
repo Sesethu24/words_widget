@@ -31,13 +31,32 @@ function getSentence() {
         }
         sentence = message;
     }
-    
+    function longestWord() {
+
+        const long = sentence.split(" ");
+        let message = '';
+        let longest = [0];
+        for (let i = 0; i < long.length; i++) {
+            if (longest.length < long[i].length){
+                longest = long[i];
+                message += `<mark style="background-color: blue;"> ${longest} </mark> `;
+   
+            } else {
+                message += long + " ";
+            }
+            
+        }
+        message = sentence;
+        //return message
+        //longestWordElem.innerHTML = `The longest word in the sentence is <mark style="background-color: blue;"> ${longest} </mark>`;
+    }
     
 
     return {
         highlightWords,
         wordsCounter,
         get,
-        setSentence
+        setSentence,
+        longestWord
     }
 }

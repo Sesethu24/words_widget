@@ -17,6 +17,7 @@
      }
      resultsElem.innerHTML = instance.wordsCounter(sentence);
      instance.highlightWords();
+     instance.longestWord();
 
 
  });
@@ -39,27 +40,11 @@
      checkboxDisplay.innerHTML = message;
  }
 
- function longestWord() {
-
-     const long = sentence.split(" ");
-     let message = '';
-     let longest = [0];
-     for (let i = 0; i < long.length; i++) {
-         if ((checkbox.checked == true) && (longest.length < long[i].length)) {
-             longest = long[i];
-             message += `<mark> ${longest} </mark> `;
-
-         } else {
-             message += " ";
-         }
-         message = sentence;
-     }
-     longestWordElem.innerHTML = `The longest word in the sentence is <mark> ${longest} </mark>`;
- }
+ 
 
  checkbox.addEventListener('click', function () {
      hideSomeWords();
-     longestWord();
+     //longestWord();
 
  });
 
