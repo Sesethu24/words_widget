@@ -1,7 +1,7 @@
 function getSentence() {
    var sentenceList = []
 
-    let get = text => {
+   let get = text => {
         let word = text;
         return word;
     }
@@ -24,14 +24,14 @@ function getSentence() {
         for (let i = 0; i < highlight.length; i++) {
             if (highlight[i].length > 4) {
 
-                message += "<mark>" + highlight[i] + "</mark> "
+                message += `<mark> ${highlight[i]}  </mark> `
             } else {
                 message += highlight[i] + " ";
             }
         }
         sentence = message;
     }
-
+    
     
 
     return {
