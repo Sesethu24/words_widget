@@ -3,7 +3,7 @@
  const displayElement = document.querySelector(".result");
  const checkbox = document.querySelector(".checkbox");
  const checkboxDisplay = document.querySelector(".result");
- const longestWordElem = document.querySelector(".long");
+ //const longestWordElem = document.querySelector(".long");
  const keepTrackElem = document.querySelector(".trackBtn");
  let resultsElem = document.querySelector(".results");
 

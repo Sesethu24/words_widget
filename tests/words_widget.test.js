@@ -12,9 +12,3 @@ describe('words-widget', () => {
     })
 
 })
-// describe('Registration_numbers', function () {
-//     it('should push the added registration number to a list', function () {
-//         var numbers = Registrations();
-//         numbers.addToList("CA 123456");
-//         assert.deepEqual(["CA 123456"], numbers.getRegistrations());
-//     });

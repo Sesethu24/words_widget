@@ -48,7 +48,7 @@ function getSentence() {
         }
         message = sentence;
         //return message
-        //longestWordElem.innerHTML = `The longest word in the sentence is <mark style="background-color: blue;"> ${longest} </mark>`;
+        longestWordElem.innerHTML = `The longest word in the sentence is <mark style="background-color: blue;"> ${longest} </mark>`;
     }
     
 
